@@ -1,0 +1,18 @@
+version : "3.9"
+services :
+ docker_todo_app:
+  container_name : "docker-todo-app"
+  build : .
+  ports :
+   - 8000:8000
+  volumes:
+   - /home/ubuntu/volumes/django_todo_volume:/app
+ mysql_db:
+  container_name: "django-mysql-db"
+  image: mysql:5.7
+  ports:
+   - 6606:6606
+  environment:
+   - MYSQL_ROOT_PASSWORD:"amie@123"
+volumes:
+ django_todo_volume: 
